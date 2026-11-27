@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Club Analytics Hub: an independent portfolio project by Deniz Izci. Finance, sponsorship and matchday planning for a fictional football club, using synthetic data."
+    />
+    <meta name="author" content="Deniz Izci" />
+    <meta name="theme-color" content="#0c1822" />
+    <title>Larkmoor Athletic Business Intelligence &amp; Analytics</title>
+    <link rel="canonical" href="https://clubanalytics.denizci.dev/" />
+    <meta property="og:title" content="Club Analytics Hub | Portfolio project by Deniz Izci" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://clubanalytics.denizci.dev/" />
+    <meta
+      property="og:description"
+      content="Interactive business intelligence for a fictional football club: cash flow, sponsors, matchday planning and scenario modeling. All data is synthetic."
+    />
+    <meta property="og:image" content="https://clubanalytics.denizci.dev/assets/share.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta
+      property="og:image:alt"
+      content="Club Analytics Hub dashboard showing cash, sponsorship and attendance measures for a fictional club"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Club Analytics Hub | Portfolio project by Deniz Izci" />
+    <meta name="twitter:image" content="https://clubanalytics.denizci.dev/assets/share.png" />
+    <link rel="icon" href="./assets/larkmoor-crest.png" />
+    <link
+      rel="preload"
+      href="./assets/dm-sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./lab.css" />
+    <link rel="stylesheet" href="./portfolio.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to workspace</a>
+    <div class="app-shell" id="app-shell">
+      <aside class="app-rail" id="app-rail" aria-label="Primary navigation">
+        <div class="brand-lockup">
+          <img src="./assets/larkmoor-crest.png" alt="" />
+          <div>
+            <strong>Larkmoor Athletic</strong><span>Business Intelligence &amp; Analytics</span>
+          </div>
+          <button class="icon-button rail-close" id="rail-close" aria-label="Close navigation">
+            ×
+          </button>
+        </div>
+        <button class="workspace-switcher" id="workspace-switcher" type="button">
+          <span class="workspace-mark">LA</span>
+          <span
+            ><b>Club Workspace</b
+            ><small id="workspace-model-label">Synthetic demonstration</small></span
+          >
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <nav id="primary-nav"></nav>
+        <div class="rail-footer">
+          <div class="environment-badge"><span></span> Portfolio demo</div>
+          <p id="rail-status">Synthetic model · read only</p>
+          <button class="rail-help" data-action="about" type="button">
+            i <span>About This Project</span>
+          </button>
+          <button class="rail-help" data-action="presentation-brief" type="button">
+            ↗ <span>Executive Summary</span>
+          </button>
+          <button class="rail-help" id="tour-button" type="button">
+            ? <span>How to Use This Demo</span>
+          </button>
+        </div>
+      </aside>
+      <div class="mobile-scrim" id="mobile-scrim"></div>
+      <section class="app-stage">
+        <header class="topbar">
+          <div class="topbar-start">
+            <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open navigation">
+              ☰
+            </button>
+            <div class="breadcrumb">
+              <span>Larkmoor Athletic</span><b>/</b
+              ><strong id="breadcrumb-view">Command Center</strong>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <label class="select-control compact"
+              ><span>Finance period</span
+              ><select id="period-filter" aria-label="Financial period">
+                <option value="FY25">FY25 model</option>
+                <option value="FY24">FY24 annual model</option>
+              </select></label
+            >
+            <label class="select-control compact"
+              ><span>Sample program</span
+              ><select id="program-filter" aria-label="Program filter">
+                <option value="All">All programs</option>
+                <option value="Men">Men</option>
+                <option value="Women">Women</option>
+              </select></label
+            >
+            <button class="search-trigger" id="search-trigger" type="button">
+              <span class="search-icon" aria-hidden="true">⌕</span><span>Search</span>
+              <kbd>Ctrl K</kbd>
+            </button>
+            <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme">
+              ◐
+            </button>
+            <button
+              class="notification-button"
+              id="notification-button"
+              type="button"
+              aria-label="3 open decisions"
+            >
+              <i aria-hidden="true">♢</i><span>3</span>
+            </button>
+            <button class="profile-button" type="button">
+              <span>DV</span><b> Demo Viewer</b> <small>Read only</small>
+            </button>
+          </div>
+        </header>
+        <div class="evidence-ribbon">
+          <p class="disclosure">
+            <b>Independent portfolio project.</b> Fictional club, synthetic data. Not affiliated
+            with or endorsed by any club.
+          </p>
+          <p class="byline">
+            <span>Built by <b>Deniz Izci</b></span>
+            <a href="https://www.linkedin.com/in/denizizci" target="_blank" rel="noopener"
+              >LinkedIn</a
+            >
+            <a href="https://github.com/kaiscout/club-analytics-hub" target="_blank" rel="noopener"
+              >GitHub</a
+            >
+            <a href="https://denizci.dev" target="_blank" rel="noopener">Portfolio</a>
+            <button id="about-button" data-action="about" type="button">About this project</button>
+          </p>
+          <span id="controls-summary" hidden></span><span id="filter-summary" hidden></span>
+        </div>
+        <main id="workspace" class="workspace" tabindex="-1"></main>
+      </section>
+    </div>
+
+    <div class="modal-backdrop" id="palette-backdrop" hidden>
+      <section
+        class="command-palette"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="palette-title"
+      >
+        <div class="palette-search">
+          <span>⌕</span
+          ><input
+            id="palette-input"
+            type="search"
+            placeholder="Jump to a workspace or action…"
+            autocomplete="off"
+          /><kbd>Esc</kbd>
+        </div>
+        <div class="palette-body">
+          <p id="palette-title">Navigate the hub</p>
+          <div id="palette-results"></div>
+        </div>
+        <footer><span>↑↓ Navigate</span><span>↵ Open</span><span>Ctrl K Search</span></footer>
+      </section>
+    </div>
+
+    <div class="modal-backdrop" id="tour-backdrop" hidden>
+      <section class="tour-modal" role="dialog" aria-modal="true" aria-labelledby="tour-title">
+        <button class="modal-close" data-close-modal="tour-backdrop" aria-label="Close guide">
+          ×
+        </button>
+        <span class="section-kicker">How to use this demo</span>
+        <h2 id="tour-title">Find the decision before the detail.</h2>
+        <p>
+          The hub is organized around the questions a club leader asks—not around source-system
+          tables.
+        </p>
+        <div class="tour-grid">
+          <article>
+            <span>01</span><b>Scan</b>
+            <p>Start in Command Center for the main finding and open decisions.</p>
+          </article>
+          <article>
+            <span>02</span><b>Investigate</b>
+            <p>Open Finance, Commercial, Matchday or Programs to see what is behind it.</p>
+          </article>
+          <article>
+            <span>03</span><b>Decide</b>
+            <p>Use Scenario Lab to test a plan, then the Decision Register to see next steps.</p>
+          </article>
+        </div>
+        <button class="primary-button" data-close-modal="tour-backdrop">Explore the demo</button>
+      </section>
+    </div>
+
+    <aside
+      class="detail-drawer"
+      id="detail-drawer"
+      aria-hidden="true"
+      inert
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="drawer-title"
+    >
+      <div class="drawer-head">
+        <div>
+          <span class="section-kicker" id="drawer-kicker">Detail</span>
+          <h2 id="drawer-title">Detail</h2>
+        </div>
+        <button class="icon-button" id="drawer-close" aria-label="Close detail panel">×</button>
+      </div>
+      <div class="drawer-body" id="drawer-body"></div>
+    </aside>
+    <div class="drawer-scrim" id="drawer-scrim"></div>
+    <div class="toast-region" id="toast-region" aria-live="polite"></div>
+    <div class="tooltip" id="tooltip" role="tooltip" aria-hidden="true"></div>
+    <section id="presentation-print"></section>
+    <script src="./data.js"></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  // Cloudflare Worker: static assets plus a redirect from the retired hostname.
+  // `npm run site:build` regenerates ./dist; `npm run cf:deploy` builds and uploads it.
+  // The Worker name is an internal identifier that Workers Builds is connected to.
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "pcfc-intelligence-hub",
+  "main": "./worker/index.js",
+  "account_id": "e37e60395246132a8b82855c6f6f1918",
+  "compatibility_date": "2026-11-01",
+  "routes": [
+    { "pattern": "clubanalytics.denizci.dev", "custom_domain": true },
+    { "pattern": "pcfc.denizci.dev", "custom_domain": true },
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+  },
+  "observability": { "enabled": true },
+}

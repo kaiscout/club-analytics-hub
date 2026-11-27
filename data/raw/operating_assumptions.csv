@@ -1,0 +1,3 @@
+ProgramKey,Program,AverageAttendance,TicketPrice,BaseMatches,PlayoffMatches,ConcessionSpend,SourceClass
+MEN,Men,960,14,9,11,7.5,Synthetic operating assumption
+WOMEN,Women,1040,14,9,11,7.5,Synthetic operating assumption
