@@ -33,3 +33,6 @@ the local runtime crashes with an access violation. `cf:deploy` does not depend 
 - `site/_headers` sets the content security policy, HSTS, `nosniff` and related headers. It allows Cloudflare Web
   Analytics, which is enabled for the zone and adds its own script.
 - The `workers.dev` URL is disabled.
+- Workers Builds deploys with the account's existing build token. If the GitHub repository is
+  replaced or renamed, add it to the Cloudflare GitHub app's repository list, then reconnect it
+  under the Worker's Settings → Builds with the same branch and commands.
